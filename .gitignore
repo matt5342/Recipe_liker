@@ -38,4 +38,4 @@ jspm_packages
 !/storage/.keep
 .byebug_history
 # Ignore master key for decrypting credentials and more.
-/config/master.key
+/config/master.key 
