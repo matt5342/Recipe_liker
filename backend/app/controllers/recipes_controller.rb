@@ -2,7 +2,20 @@ class RecipesController < ApplicationController
     def index
         @recipes = Recipe.all
         render json: @recipes
-    end    
+    end
+    def this_course
+        @course = Recipe.all.filter{|r| r.course == params[:course]}
+        render json: @course
+    end
+    def search
+        # byebug
+        @search_term = Recipe.all.filter{|r| r.name.downcase == params[:search].downcase}
+        render json: @search_term
+    end
+    def random_recipe
+        @recipe = Recipe.all[rand(Recipe.all.length - 1)]
+        render json: @recipe
+    end
 
 end
 
