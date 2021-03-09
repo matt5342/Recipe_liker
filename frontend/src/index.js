@@ -43,3 +43,5 @@ function renderCookingStyle(e) {
             style.innerText = e.cuisine
         document.getElementById("display-cooking-styles").appendChild(style)
 }
+
+
