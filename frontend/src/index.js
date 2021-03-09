@@ -1,4 +1,6 @@
 // require ./card.js
+import renderRecipe from "./card.js"
+
 document.addEventListener("DOMContentLoaded", () => {
     populateDropdown();
 })
@@ -22,10 +24,11 @@ function renderRandomRecipe() {
     fetch('http://localhost:3000/recipes/random')
     .then(res => res.json())
     .then(recipe => {
-        let name = document.createElement('h3')
-        name.innerText = recipe.name
-        document.getElementById("display-random").appendChild(name)
-        document.getElementById("display-random").style.display = 'block'
+        renderRecipe(recipe)
+        // let name = document.createElement('h3')
+        // name.innerText = recipe.name
+        // document.getElementById("display-random").appendChild(name)
+        // document.getElementById("display-random").style.display = 'block'
     })
 }
 
@@ -43,6 +46,7 @@ function renderCookingStyle(e) {
             style.innerText = e.cuisine
         document.getElementById("display-cooking-styles").appendChild(style)
 }
+     
 function populateDropdown() {
     fetch('http://localhost:3000/recipes/')
     .then(res => res.json())
@@ -105,3 +109,5 @@ function handleSearch(e) {
     }))
     // debugger
 }
+
+
