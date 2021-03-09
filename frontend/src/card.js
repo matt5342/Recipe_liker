@@ -11,7 +11,7 @@
     
         let img = document.createElement('img')
             img.className = 'card-img-top'
-            img.src = recipe.image
+            img.src = "https://image.freepik.com/free-photo/cute-cat-picture_1122-449.jpg?1"
         
         let cardBody = document.createElement('div')
             cardBody.classList.add('card-body')
@@ -33,8 +33,7 @@
         cardBody.append(cardTitle)
     
         card.append(img, cardBody, cardFooter)
-    debugger
         col.appendChild(card)
         recipeBox.appendChild(col)
-
+        document.getElementById("main-content").append(recipeBox)
         }

@@ -1,5 +1,3 @@
-// require ./card.js
-import renderRecipe from "./card.js"
 
 document.addEventListener("DOMContentLoaded", () => {
     populateDropdown();
@@ -25,10 +23,6 @@ function renderRandomRecipe() {
     .then(res => res.json())
     .then(recipe => {
         renderRecipe(recipe)
-        // let name = document.createElement('h3')
-        // name.innerText = recipe.name
-        // document.getElementById("display-random").appendChild(name)
-        // document.getElementById("display-random").style.display = 'block'
     })
 }
 
@@ -38,13 +32,8 @@ function getCookingStyles() {
     if (!document.getElementById("display-cooking-styles").hasChildNodes()){
         fetch('http://localhost:3000/recipes/')
         .then(res => res.json())
-        .then(recipes => recipes.forEach(renderCookingStyle))
+        .then(recipes => recipes.forEach(renderRecipe))
     }
-}
-function renderCookingStyle(e) {
-        let style = document.createElement('h3')
-            style.innerText = e.cuisine
-        document.getElementById("display-cooking-styles").appendChild(style)
 }
      
 function populateDropdown() {
@@ -77,12 +66,7 @@ function renderByCourse(e) {
 
     fetch('http://localhost:3000/courses/' + e.target.innerText)
     .then(res => res.json())
-    .then(recipes => recipes.forEach((recipe) => {
-        let name = document.createElement('h3')
-        name.innerText = recipe.name
-        document.getElementById("display-by-course").appendChild(name)
-        document.getElementById("display-by-course").style.display = 'block'
-    }))
+    .then(recipes => recipes.forEach(renderRecipe))
 }
 function resetMainContent() {
     let allNodes = document.getElementById("main-content").children
@@ -101,13 +85,7 @@ function handleSearch(e) {
     let searchTerm = e.target[0].value
     fetch('http://localhost:3000/recipes/search/' + searchTerm)
     .then(res => res.json())
-    .then(recipes => recipes.forEach((recipe) => {
-        let name = document.createElement('h3')
-        name.innerText = recipe.name
-        document.getElementById("display-from-search").appendChild(name)
-        document.getElementById("display-from-search").style.display = 'block'
-    }))
-    // debugger
+    .then(recipes => recipes.forEach(renderRecipe))
 }
 
 
