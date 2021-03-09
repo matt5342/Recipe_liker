@@ -8,5 +8,6 @@ Rails.application.routes.draw do
   get 'courses/:course', to: 'recipes#this_course', as: 'this_course'
   get 'recipes/search/:search', to: 'recipes#search', as: 'search'
   get 'recipes/random', to: 'recipes#random_recipe', as: 'random_recipe'
+  get 'recipes/:id', to: 'recipes#this_recipe', as: 'this_recipe'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

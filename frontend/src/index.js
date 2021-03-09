@@ -2,9 +2,8 @@
 document.addEventListener("DOMContentLoaded", () => {
     populateDropdown();
 })
-document.getElementById("home-button").addEventListener("click", () => {
-    renderHome();
-})
+document.getElementById("home-button").addEventListener("click", renderHome)
+document.getElementById("nomad-button").addEventListener("click", renderHome)
 document.getElementById("cooking-styles").addEventListener("click", () => {
     getCookingStyles();
 })
