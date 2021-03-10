@@ -72,11 +72,13 @@ function resetMainContent() {
     for (let i = 0; i < allNodes.length; i++){
         allNodes[i].style.display = "none"
     }
+    resetCards();
 }
 
 document.getElementsByClassName('form-inline my-2 my-lg-0')[0].addEventListener('submit', handleSearch)
 function handleSearch(e) {
     e.preventDefault()
+    // debugger
     resetMainContent();
     while (document.getElementById("display-from-search").hasChildNodes()) {
         document.getElementById("display-from-search").removeChild(document.getElementById("display-from-search").firstChild)
