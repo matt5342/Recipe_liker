@@ -84,7 +84,9 @@ function handleSearch(e) {
     let searchTerm = e.target[0].value
     fetch('http://localhost:3000/recipes/search/' + searchTerm)
     .then(res => res.json())
-    .then(recipes => recipes.forEach(renderRecipe))
+    .then(recipes => () => {
+        debugger
+        recipes.forEach(renderRecipe)})
 }
 
 
