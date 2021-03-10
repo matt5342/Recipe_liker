@@ -1,3 +1,7 @@
+let recipeBox = document.createElement('div')
+recipeBox.className = "recipe-collection"
+ 
+ 
  const renderRecipe = (recipe) => {
     let cardGroup = document.getElementsByClassName('card-columns')[0]
     let card = document.createElement('div')
