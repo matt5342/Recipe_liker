@@ -59,8 +59,6 @@ class RecipesController < ApplicationController
         else 
             render json: { message: "No recipes found"}
         end
-            # @search_term = Recipe.all.filter{|r| r.name.downcase == params[:search].downcase}
-            # render json: @search_term
     end
     
     def random_recipe

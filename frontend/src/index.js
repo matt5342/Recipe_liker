@@ -31,8 +31,12 @@ function getCookingStyles() {
     if (!document.getElementById("display-cooking-styles").hasChildNodes()){
         fetch('http://localhost:3000/recipes/')
         .then(res => res.json())
-        .then(recipes => recipes.forEach(renderRecipe))
+        .then(recipes => recipes.forEach(findStyles))
     }
+}
+function findStyles(recipe) {
+    
+    renderRecipe(recipe)
 }
      
 function populateDropdown() {
