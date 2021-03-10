@@ -1,10 +1,12 @@
+let recipeBox = document.createElement('div')
+recipeBox.className = "recipe-collection"
+ 
+ 
  const renderRecipe = (recipe) => {
-        let recipeBox = document.createElement('div')
-            recipeBox.className = "recipe-collection"
-    
+
         let col = document.createElement('div')
-            col.className = "col-sm-4"
-    
+            col.className = "col-sm-4" 
+            
         let card = document.createElement('div')
             card.classList.add('card', 'm-2')
             card.id = `recipe-${recipe.id}`
@@ -37,3 +39,6 @@
         recipeBox.appendChild(col)
         document.getElementById("main-content").append(recipeBox)
         }
+
+        
+     
