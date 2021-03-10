@@ -24,7 +24,6 @@ def build_seeds
     url = "https://www.themealdb.com/api/json/v1/1/random.php"
     response = RestClient.get(url)
     result = JSON.parse(response)
-    # binding.pry
     rec = Recipe.create(
         picture: result["meals"][0]["strMealThumb"], 
         name: result["meals"][0]["strMeal"], 
@@ -33,29 +32,31 @@ def build_seeds
         course: result["meals"][0]["strCategory"], 
         cuisine: result["meals"][0]["strArea"]
     )
-    current_ing_num = 1
-    while result["meals"][0]["strIngredient#{current_ing_num}"]
+    if rec
+        current_ing_num = 1
+        while result["meals"][0]["strIngredient#{current_ing_num}"]
 
-        ing = Ingredient.create(
-            name: result["meals"][0]["strIngredient#{current_ing_num}"]
-        )
-        RecipeIngredient.create(
-            ingredient_id: ing.id, 
+            ing = Ingredient.create(
+                name: result["meals"][0]["strIngredient#{current_ing_num}"]
+            )
+            RecipeIngredient.create(
+                ingredient_id: ing.id, 
+                recipe_id: rec.id, 
+                amount: result["meals"][0]["strMeasure#{current_ing_num}"]
+            )
+            current_ing_num += 1
+        end
+        UserRecipe.create(
+            user_id: User.all[rand(9)].id, 
             recipe_id: rec.id, 
-            amount: result["meals"][0]["strMeasure#{current_ing_num}"]
+            like: [true, false].sample,
+            comment: Faker::Marketing.buzzwords, 
+            rating: rand(1..5).to_s + " stars"
         )
-        current_ing_num += 1
     end
-    UserRecipe.create(
-        user_id: User.all[rand(9)].id, 
-        recipe_id: rec.id, 
-        like: [true, false].sample,
-        comment: Faker::Marketing.buzzwords, 
-        rating: rand(1..5).to_s + " stars"
-    )
 end
 
-10.times do 
+30.times do 
     build_seeds
 end
 
