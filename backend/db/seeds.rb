@@ -55,7 +55,7 @@ def build_seeds
     )
 end
 
-10.times do 
+30.times do 
     build_seeds
 end
 

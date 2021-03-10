@@ -21,27 +21,26 @@ class RecipesController < ApplicationController
         response = RestClient.get(url)
         result = JSON.parse(response)
         recipe_arr = []
-        i = 0
         if result["meals"]
             result["meals"].each do |meal|
-
+                # byebug
                 rec = Recipe.create(
-                    picture: meal[i]["strMealThumb"], 
-                    name: meal[i]["strMeal"], 
+                    picture: meal["strMealThumb"], 
+                    name: meal["strMeal"], 
                     duration: rand(300).to_s + " minutes", 
-                    instructions: meal[i]["strInstructions"], 
-                    course: meal[i]["strCategory"], 
-                    cuisine: meal[i]["strArea"]
+                    instructions: meal["strInstructions"], 
+                    course: meal["strCategory"], 
+                    cuisine: meal["strArea"]
                 )
                 current_ing_num = 1
-                while meal[i]["strIngredient#{current_ing_num}"]
+                while meal["strIngredient#{current_ing_num}"]
                     ing = Ingredient.create(
-                        name: meal[i]["strIngredient#{current_ing_num}"]
+                        name: meal["strIngredient#{current_ing_num}"]
                     )
                     RecipeIngredient.create(
                         ingredient_id: ing.id, 
                         recipe_id: rec.id, 
-                        amount: meal[i]["strMeasure#{current_ing_num}"]
+                        amount: meal["strMeasure#{current_ing_num}"]
                     )
                     current_ing_num += 1
                 end
@@ -53,9 +52,8 @@ class RecipesController < ApplicationController
                     rating: rand(1..5).to_s + " stars"
                 )
                 recipe_arr.push(build_recipe(rec))
-                i += 1
-                render json: recipe_arr
             end
+            render json: recipe_arr
         else 
             render json: { message: "No recipes found"}
         end
