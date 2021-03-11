@@ -18,7 +18,14 @@ recipeBox.className = "recipe-collection"
     let img = document.createElement('img')
         img.className = 'card-img-top'
         img.src = recipe.picture
-    cardBody.append(cardTitle, cardText)
+    let recipeLikes = document.createElement('p')
+        recipeLikes.innerText = `${recipe.likes} likes`
+    let recipeBtn = document.createElement('button')
+        recipeBtn.id = recipe.id
+        recipeBtn.className = "like-btn"
+        recipeBtn.innerText = "Like <3"
+
+    cardBody.append(cardTitle, cardText, recipeLikes, recipeBtn)
     card.append(img, cardBody)
     cardGroup.appendChild(card)
     cardGroup.style.display = 'grid'
