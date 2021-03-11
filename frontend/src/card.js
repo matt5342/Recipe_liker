@@ -29,21 +29,19 @@ recipeBox.className = "recipe-collection"
 }
 
 function renderSingleRecipe(e) {
-    // debugger
     let rec_id = e.target.parentElement.dataset.id
     fetch('http://localhost:3000/recipes/' + rec_id)
     .then(res => res.json())
     .then(recipe => renderSingleRecipeCard(recipe))
-    // render a whole recipe with all the ingredients and everything
 }
 function renderSingleRecipeCard(recipe) {
-    // debugger
     resetMainContent();
     let cardGroup = document.getElementsByClassName('card-columns')[0]
     cardGroup.style.display = 'flex'
     let card = document.createElement('div')
         card.className = 'card'
         card.dataset.id = recipe.id
+        card.style.width = '90%'
     let cardBody = document.createElement('div')
         cardBody.className = 'card-body'
     let cardTitle = document.createElement('h3')
@@ -79,6 +77,8 @@ function renderSingleRecipeCard(recipe) {
     cardGroup.appendChild(card)
     recipe.ingredients.forEach(buildIngredients)
 
+    // buildComments(recipe)
+
 }
 
 function buildIngredients(ingredient) {
@@ -90,6 +90,19 @@ function buildIngredients(ingredient) {
         amount.innerText = ingredient.amount
     table_row.append(ing, amount)
     table.append(table_row)
+}
+function buildComments(recipe) {
+    let cardGroup = document.getElementsByClassName('card-columns')[0]
+    cardGroup.style.display = 'block'
+    let card = document.createElement('div')
+        card.className = 'card'
+        card.dataset.id = recipe.id
+    let cardTitle = document.createElement('h5')
+        cardTitle.className = 'card-title'
+        cardTitle.innerText = "Comments"
+    
+    card.appendChild(cardTitle)
+    cardGroup.append(card)
 }
 
 function resetCards() {

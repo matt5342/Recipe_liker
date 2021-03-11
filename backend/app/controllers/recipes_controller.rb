@@ -60,6 +60,22 @@ class RecipesController < ApplicationController
             render json: { message: "No recipes found"}
         end
     end
+    def comments
+        comments = []
+        rec = Recipe.find_by_id(params[:id])   
+        rec.user_recipes.map do |ur| 
+            comments.push(ur.comment)
+        end
+        render json: comments
+    end
+    def likes
+        likes = []
+        rec = Recipe.find_by_id(params[:id])   
+        rec.user_recipes.map do |ur| 
+            likes.push(ur.like)
+        end
+        render json: likes
+    end
     
     def random_recipe
         @recipe = Recipe.all[rand(Recipe.all.length - 1)]

@@ -82,7 +82,7 @@ function resetMainContent() {
 document.getElementsByClassName('form-inline my-2 my-lg-0')[0].addEventListener('submit', handleSearch)
 function handleSearch(e) {
     e.preventDefault()
-    // debugger
+    document.getElementsByClassName('form-inline my-2 my-lg-0')[0]
     resetMainContent();
     while (document.getElementById("display-from-search").hasChildNodes()) {
         document.getElementById("display-from-search").removeChild(document.getElementById("display-from-search").firstChild)
@@ -91,6 +91,12 @@ function handleSearch(e) {
     fetch('http://localhost:3000/recipes/search/' + searchTerm)
     .then(res => res.json())
     .then(recipes => recipes.forEach(renderRecipe))
+    if (document.getElementsByClassName('card-columns')[0].childElementCount == 0){
+        let message = document.createElement('h3')
+            message.innerText = "No recipes found. Please try again"
+            message.className = "text-danger"
+        document.getElementById('main-content').appendChild(message)
+    }
 }
 
 
