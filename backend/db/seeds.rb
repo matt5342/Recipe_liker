@@ -35,15 +35,16 @@ def build_seeds
     if rec
         current_ing_num = 1
         while result["meals"][0]["strIngredient#{current_ing_num}"]
-
-            ing = Ingredient.create(
-                name: result["meals"][0]["strIngredient#{current_ing_num}"]
-            )
-            RecipeIngredient.create(
-                ingredient_id: ing.id, 
-                recipe_id: rec.id, 
-                amount: result["meals"][0]["strMeasure#{current_ing_num}"]
-            )
+            if result["meals"][0]["strIngredient#{current_ing_num}"] != ""
+                ing = Ingredient.create(
+                    name: result["meals"][0]["strIngredient#{current_ing_num}"]
+                )
+                RecipeIngredient.create(
+                    ingredient_id: ing.id, 
+                    recipe_id: rec.id, 
+                    amount: result["meals"][0]["strMeasure#{current_ing_num}"]
+                )
+            end
             current_ing_num += 1
         end
         UserRecipe.create(
