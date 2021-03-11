@@ -30,10 +30,7 @@
           
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Login</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Kitchen Tips</a>
+          <a class="nav-link" id= "kitchen-tips" href="#">Kitchen Tips</a>
         </li>
         <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">By Category</a>
@@ -43,10 +40,10 @@
           <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">More</a>
           <div class="dropdown-menu">
             <a class="dropdown-item" id="cooking-styles" href="#">Cooking Styles</a>
-            <a class="dropdown-item" href="#">Food Trends</a>
-            <a class="dropdown-item" href="#">About Us</a>
+            <a class="dropdown-item" id="food-trends" href="#">Food Trends</a>
+            <a class="dropdown-item" id="about-us" href="#">About Us</a>
             <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="#">Follow</a>
+            <a class="dropdown-item" id= "follow" href="#">Follow</a>
         </li>
       </ul>
       <form class="form-inline my-2 my-lg-0">
@@ -62,10 +59,13 @@
   <div id="display-from-search"></div>
   <div id="display-random"></div>
   <div class="jumbotron">
-    <h1 class="display-3">Hello, this is NOMAD.</h1>
+    <h1 class="display-3">this is NOMAD.</h1>
     <p class="lead">Find and share everyday cooking inspiration on NOMAD. Discover recipes, cooks, videos, and how-tos based on the food you love and the friends you follow.</p>
     <hr class="my-4">
   </div>
+
+
+  
 
   
   <!-- <section id="intro" class="demo"> -->
@@ -74,38 +74,31 @@
 
     
   
-    <div class="container" id="account-setup-buttons">
-      <div id="main" class="row mt-4 d-flex">
-            <div class="col-sm mt-2">
-              <div class="eighty p-3">
-                <a class="btn btn-primary" data-toggle="collapse" href="#create-Nomad-form" role="button" aria-expanded="false" aria-controls="collapseFormButton">Become a NOMAD</a>
-                <form id = 'create-Nomad-form' class="ui1 form collapse multi-collapse">
-                  <div class="form-group">
-                    <input name="name" class="form-control mb-2" type="text"placeholder="Name">
-                    <input name="password" class="form-control mb-2" type="password"placeholder="Passcode">
-                    <input name="password_confirmation" class="form-control mb-2" type="password"placeholder="Passcode Confirmation">
-                    <input name="photo" class="form-control mb-2" type="text" placeholder="Photo">
-                    <input class="btn btn-primary" type="submit">
-                  </div>
-                </form>
+   <div class="col-sm mt-2">
+                <div class="eighty p-3">
+                  <a class="btn btn-dark" data-toggle="collapse" href="#prove-wizard-form" role="button" aria-expanded="false" aria-controls="collapseFormButton">Become a NOMAD</a>
+                  <form id="prove-wizard-form" class="ui2 form collapse multi-collapse">
+                    <div class="form-group">
+                      <input name="name" class="form-control mb-2" type="text"placeholder="Name">
+                      <input name="password" class="form-control mb-2" type="password"placeholder="Password">
+                      <input name="password_confirmation" class="form-control mb-2" type="password"placeholder="Confirm Password">
+                      <input class="btn btn-dark" type="submit">
+                    </div>
+                  </form>
+                </div>
               </div>
-            </div>
-            <div class="col-sm mt-2">
-              <div class="eighty p-3">
-                <a class="btn btn-primary" data-toggle="collapse" href="#prove-Nomad-form" role="button" aria-expanded="false" aria-controls="collapseFormButton"> Already a NOMAD</a>
-                <form id="prove-nomad-form" class="ui2 form collapse multi-collapse">
-                  <div class="form-group">
-                    <input name="name" class="form-control mb-2" type="text"placeholder="Name">
-                    <input name="password" class="form-control mb-2" type="password"placeholder="Passcode">
-                    <input class="btn btn-primary" type="submit">
-                  </div>
-                </form>
+              <div class="col-sm mt-2">
+                <div class="eighty p-3">
+                  <a class="btn btn-dark" data-toggle="collapse" href="#prove-house-form" role="button" aria-expanded="false" aria-controls="collapseFormButton"> Already a NOMAD</a>
+                  <form id="prove-house-form" class="ui3 form collapse multi-collapse">
+                    <div class="form-group">
+                      <input name="name" class="form-control mb-2" type="text"placeholder="Name">
+                      <input name="password" class="form-control mb-2" type="password"placeholder="Password">
+                      <input class="btn btn-dark" type="submit">
+                    </div>
+                  </form>
+                </div>
               </div>
-            </div>
-                </form>
-        </div>
-
-      </div>
     <div class="transition" >
     </div>
   
@@ -123,7 +116,7 @@
 
 
 
-        
+
   
   
 
