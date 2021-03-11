@@ -4,6 +4,10 @@ document.addEventListener("DOMContentLoaded", () => {
 })
 document.getElementById("home-button").addEventListener("click", renderHome)
 document.getElementById("nomad-button").addEventListener("click", renderHome)
+document.getElementById("kitchen-tips").addEventListener("click", renderTips)
+document.getElementById("about-us").addEventListener("click", renderAboutUs)
+document.getElementById("food-trends").addEventListener("click", renderFoodTrends)
+document.getElementById("follow").addEventListener("click", renderFollow)
 document.getElementById("cooking-styles").addEventListener("click", () => {
     getCookingStyles();
 })
@@ -23,6 +27,58 @@ function renderRandomRecipe() {
     .then(recipe => {
         renderRecipe(recipe)
     })
+}
+
+function renderTips(){
+   resetMainContent();
+   let heading1 = document.createElement('h1')
+   heading1.innerText = "Kitchen Tips"
+
+   let title1 = document.createElement('h3')
+   title1.innerText = "Peel Ginger with a Spoon"
+
+   let body1 = document.createElement('h4')
+   body1.innerText = "Ginger can be tricky to peel with all its bumps and irregularities. Rather than using a paring knife or vegetable peeler, reach for the spoon. Scrape it against the skin and it'll come right off, following every contour and minimizing waste."
+
+
+
+   document.getElementById("main-content").append(heading1, title1, body1)
+}
+
+function renderAboutUs(){
+    resetMainContent();
+
+    let heading = document.createElement('h1')
+    heading.innerText = "About Us"
+
+    let body = document.createElement('h3')
+    body.innerText = "NOMAD is here to help you cook delicious meals with less stress and more joy. We offer recipes and cooking advice for home cooks, by home cooks."
+
+    document.getElementById("main-content").append(heading, body)
+}
+
+function renderFoodTrends(){
+    resetMainContent();
+
+    let heading = document.createElement('h1')
+    heading.innerText = "The 15 Food Trends You're Going To See Everywhere In 2021"
+
+    let body = document.createElement('h4')
+    body.innerText = "Plant Based - Plant-based items continue to be a trend into 2021, as 28 percent of people said that they have been eating more protein from plant sources during the pandemic, according to IFIC. More people will be flirting with veganism, but others will just be eating things that taste good and happen to be vegan. Expect the usual suspects to be rolling out even more innovations, especially at fast-food restaurants, but some forecasters predict newer things like plant-based fish are also going to be big on the horizon. "
+
+    document.getElementById("main-content").append(heading, body)
+}
+
+function renderFollow(){
+    resetMainContent();
+
+    let heading = document.createElement('h1')
+    heading.innerText = "Follow us!"
+
+    let body = document.createElement('h4')
+    body.innerText = "IG: @NOMAD Twitter: @NOMADRecipes"
+
+    document.getElementById("main-content").append(heading, body)
 }
 
 function getCookingStyles() {

@@ -9,6 +9,7 @@ recipeBox.className = "recipe-collection"
         card.dataset.id = recipe.id
     let cardBody = document.createElement('div')
         cardBody.className = 'card-body'
+        cardBody.dataset.id = recipe.id
     let cardTitle = document.createElement('h4')
         cardTitle.className = 'card-title'
         cardTitle.innerText = recipe.name
@@ -18,7 +19,14 @@ recipeBox.className = "recipe-collection"
     let img = document.createElement('img')
         img.className = 'card-img-top'
         img.src = recipe.picture
-    cardBody.append(cardTitle, cardText)
+    let recipeLikes = document.createElement('p')
+        recipeLikes.innerText = `${recipe.likes} likes`
+    let recipeBtn = document.createElement('button')
+        recipeBtn.id = recipe.id
+        recipeBtn.className = "like-btn"
+        recipeBtn.innerText = "🧡"
+
+    cardBody.append(cardTitle, cardText, recipeLikes, recipeBtn)
     card.append(img, cardBody)
     cardGroup.appendChild(card)
     cardGroup.style.display = 'grid'
@@ -26,6 +34,8 @@ recipeBox.className = "recipe-collection"
     
     cardBody.addEventListener('click', renderSingleRecipe)
     img.addEventListener('click', renderSingleRecipe)
+    recipeLikes.addEventListener('click', renderSingleRecipe)
+
 }
 
 function renderSingleRecipe(e) {

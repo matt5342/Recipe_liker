@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   resources :recipes, only: [:index]
   resources :user_recipes
   resources :users
+  
   get 'courses/:course', to: 'recipes#this_course', as: 'this_course'
   get 'recipes/search/:search', to: 'recipes#search', as: 'search'
   get 'recipes/random', to: 'recipes#random_recipe', as: 'random_recipe'
