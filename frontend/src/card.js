@@ -92,14 +92,16 @@ function renderSingleRecipeCard(recipe) {
 }
 
 function buildIngredients(ingredient) {
-    let table = document.getElementById('ingredient-table-body')
-    let table_row = document.createElement('tr')
-    let ing = document.createElement('td')
-        ing.innerText = ingredient.ingredient_name
-    let amount = document.createElement('td')
-        amount.innerText = ingredient.amount
-    table_row.append(ing, amount)
-    table.append(table_row)
+    if (ingredient.ingredient_name.length > 0){
+        let table = document.getElementById('ingredient-table-body')
+        let table_row = document.createElement('tr')
+        let ing = document.createElement('td')
+            ing.innerText = ingredient.ingredient_name
+        let amount = document.createElement('td')
+            amount.innerText = ingredient.amount
+        table_row.append(ing, amount)
+        table.append(table_row)
+    }
 }
 function buildComments(recipe) {
     let cardGroup = document.getElementsByClassName('card-columns')[0]
