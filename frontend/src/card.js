@@ -20,7 +20,7 @@ recipeBox.className = "recipe-collection"
         img.className = 'card-img-top'
         img.src = recipe.picture
     let recipeLikes = document.createElement('p')
-        recipeLikes.innerText = `${recipe.likes} likes`
+        recipeLikes.innerText = `${Math.floor((Math.random() * 10) + 1)} like(s)`
     let recipeBtn = document.createElement('button')
         recipeBtn.id = recipe.id
         recipeBtn.className = "like-btn"
@@ -32,12 +32,19 @@ recipeBox.className = "recipe-collection"
     cardGroup.style.display = 'grid'
     cardGroup.style.gridTemplateColumns = 'repeat(auto-fit, [linename3 linename4] 300px)'
     
-    cardBody.addEventListener('click', renderSingleRecipe)
+    cardTitle.addEventListener('click', renderSingleRecipe)
     img.addEventListener('click', renderSingleRecipe)
-    recipeLikes.addEventListener('click', renderSingleRecipe)
+    recipeBtn.addEventListener('click', addLike)
 
 }
 
+function addLike(e) {
+    // debugger
+    let likes = parseInt(e.target.parentNode.children[2].innerText.split(' ')[0])
+    likes ++
+    likes = likes.toString()
+    e.target.parentNode.children[2].innerText = `${likes} like(s)`
+}
 function renderSingleRecipe(e) {
     let rec_id = e.target.parentElement.dataset.id
     fetch('http://localhost:3000/recipes/' + rec_id)
