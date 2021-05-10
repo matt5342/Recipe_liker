@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"> -->
+  <link rel="stylesheet" type="text/css" href="bootstrap/css/styles.css">
+  <script defer type="text/javascript" src="src/card.js"></script>
+  <script defer type="text/javascript" src="src/index.js"></script>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Recipe Liker</title>
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" id="nomad-button" href="#">NOMAD</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor03" aria-controls="navbarColor03" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  
+    <div class="collapse navbar-collapse" id="navbarColor03">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link" id="home-button" href="#">Home
+            <span class="sr-only">(current)</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" id="explore" href="#">Explore</a>
+          
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" id= "kitchen-tips" href="#">Kitchen Tips</a>
+        </li>
+        <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">By Category</a>
+        <div class="dropdown-menu">
+        </div></li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">More</a>
+          <div class="dropdown-menu">
+            <a class="dropdown-item" id="cooking-styles" href="#">Cooking Styles</a>
+            <a class="dropdown-item" id="food-trends" href="#">Food Trends</a>
+            <a class="dropdown-item" id="about-us" href="#">About Us</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" id= "follow" href="#">Follow</a>
+        </li>
+      </ul>
+      <form class="form-inline my-2 my-lg-0">
+        <input class="form-control mr-sm-2" type="text" placeholder="Find a Recipe">
+        <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
+      </form>
+    </div>
+  </nav>
+<div id="main-content">
+ 
+  <div class="card-columns"></div>
+  <div id="display-cooking-styles"></div>
+  <div id="display-by-course"></div>
+  <div id="display-from-search"></div>
+  <div id="display-random"></div>
+  <div class="jumbotron">
+    <h1 class="display-3">this is NOMAD.</h1>
+    <p class="lead">Find and share everyday cooking inspiration on NOMAD. Discover recipes, cooks, videos, and how-tos based on the food you love and the friends you follow.</p>
+    <hr class="my-4">
+  </div>
+
+
+  
+
+  
+  <!-- <section id="intro" class="demo"> -->
+    <!-- <div style="display:none;"> 
+    </div> -->
+
+    
+  
+   <div class="col-sm mt-2">
+                <div class="eighty p-3">
+                  <a class="btn btn-dark" data-toggle="collapse" href="#prove-wizard-form" role="button" aria-expanded="false" aria-controls="collapseFormButton">Become a NOMAD</a>
+                  <form id="prove-wizard-form" class="ui2 form collapse multi-collapse">
+                    <div class="form-group">
+                      <input name="name" class="form-control mb-2" type="text"placeholder="Name">
+                      <input name="password" class="form-control mb-2" type="password"placeholder="Password">
+                      <input name="password_confirmation" class="form-control mb-2" type="password"placeholder="Confirm Password">
+                      <input class="btn btn-dark" type="submit">
+                    </div>
+                  </form>
+                </div>
+              </div>
+              <div class="col-sm mt-2">
+                <div class="eighty p-3">
+                  <a class="btn btn-dark" data-toggle="collapse" href="#prove-house-form" role="button" aria-expanded="false" aria-controls="collapseFormButton"> Already a NOMAD</a>
+                  <form id="prove-house-form" class="ui3 form collapse multi-collapse">
+                    <div class="form-group">
+                      <input name="name" class="form-control mb-2" type="text"placeholder="Name">
+                      <input name="password" class="form-control mb-2" type="password"placeholder="Password">
+                      <input class="btn btn-dark" type="submit">
+                    </div>
+                  </form>
+                </div>
+              </div>
+    <div class="transition" >
+    </div>
+  
+
+  <!-- </section> -->
+
+</div>
+
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+</body>
+<!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous"> -->
+</html>
+
+
+
+
+  
+  
+
+   
+
